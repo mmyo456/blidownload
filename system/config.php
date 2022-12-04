@@ -1,0 +1,5 @@
+<?php
+$data=array(
+    'cookie'=>"buvid3=276496F2-21C0-06A7-B555-4A8210A80A3550306infoc; b_nut=1663762750; i-wanna-go-back=-1; _uuid=D139DB28-144B-6C95-B992-3E185387C67447280infoc; buvid4=92C59CAE-71A5-5530-48FC-3CD53254CD3183555-022032518-h3Y9AnuqU8rMEfxfdCWJkQ==; hit-dyn-v2=1; buvid_fp_plain=undefined; DedeUserID=10997576; DedeUserID__ckMd5=2829c029390c0fda; b_ut=5; nostalgia_conf=-1; LIVE_BUVID=AUTO6416640119598597; blackside_state=1; is-2022-channel=1; hit-new-style-dyn=0; go_old_video=-1; PVID=1; CURRENT_FNVAL=4048; SESSDATA=49f4aa32,1684144800,0f988*b2; bili_jct=e14ce1d776e7b2df9386d41b33e4afd9; sid=734yj1jo; fingerprint=6bc486e18de41a3066f078a0d1e7cd58; rpdid=|(J|~J~|~RY~0J'uYY)lmJluk; b_lsid=23826FE2_18480CBF56A; bsource=search_baidu; buvid_fp=6bc486e18de41a3066f078a0d1e7cd58; bp_video_offset_10997576=729150563583787000; innersign=1; CURRENT_QUALITY=16"
+);
+?>
