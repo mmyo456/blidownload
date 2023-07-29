@@ -36,22 +36,5 @@ $id 为视频的 AV 号/BV 号/<br>
 }
 ```
 
-# 折腾笔记
-
-使用到的 B 站接口如下<br>
-
-```javascript
-1.转换bv或av号获取视频Cid
-https://api.bilibili.com/x/player/pagelist?bvid=BV号
-2.通过BV号以及Cid获取视频真实播放地址
-https://api.bilibili.com/x/player/playurl?bvid=BV值&cid=cid值&qn=qn值&type=&otype=json&platform=html5&high_quality=1
-qn对照表:
-"超清 1080P+",112,
-"高清 1080P",80,
-"高清 720P",64,
-"清晰 480P",32,
-"流畅 360P",16,
-更多请查看https://github.com/SocialSisterYi/bilibili-API-collect
-```
-
+# 由于原接口变更 如需解析1080以上需要使用cookie 更新接口已写 可配合我的浏览器插件更新服务器cookie
 # 仅供学习交流，严禁用于商业用途! 点个 Star 吧,秋梨膏！
