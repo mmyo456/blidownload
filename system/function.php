@@ -10,8 +10,12 @@ function GetVideoSrchtml5($videoid,$p,$qn)
   $cid = GetCid($videoid,$p);
     $header = "cookie:" . $data['cookie'] . "\r\n";
     $Response = MyRequest("https://api.bilibili.com/x/player/playurl?bvid=$videoid&cid=$cid&qn=$qn&type=&otype=json&platform=html5&high_quality=1", $header, "", "", "");
+    // echo $Response;
     $Response = json_decode($Response['body'], true);
-    return stripslashes($Response['data']['durl'][0]['url']);}
+    // echo $Response;
+    return stripslashes($Response['data']['durl'][0]['url']);
+    // return stripslashes($Response);
+}
 
 /* 
  * @Description: 安卓接口加密
@@ -20,6 +24,7 @@ function GetVideoSrchtml5($videoid,$p,$qn)
 */
 function GetAppsign($cit,$qn)
     {
+      // print_r($qn);
       $appsec = 'aHRmhWMLkdeMuILqORnYZocwMBpMEOdt';
       $params = [
       'appkey'=>'iVGUTjsxvpLeuDCf',
@@ -29,11 +34,16 @@ function GetAppsign($cit,$qn)
       'quality'=>2,
       'type'=>'mp4'
       ];
+      // $params=$params+$appkey;
+      // asort($params);
       $url=urldecode(http_build_query($params));
       $sign=$url.$appsec;
+      // print_r($sign);
       $sign=['sign'=>md5($sign)];
+      // print_r($sign);
       $params=$params+$sign;
       $params=urldecode(http_build_query($params));
+      // print_r($params);
       return $params;
     }
 /* 
@@ -46,9 +56,17 @@ function GetVideoSrc($videoid,$p,$qn)
     include(DIR . '/system/config.php');
     $cid = GetCid($videoid,$p);
     $url= GetAppsign($cid,$qn);
+    // print_r($url);
     $header = "cookie:" . $data['cookie'] . "\r\n";
+    // $Response = MyRequest("https://api.bilibili.com/x/player/playurl?cid=$cid&bvid=$videoid&qn=80", $header, "", "", "");
+    // echo ("https://interface.bilibili.com/v2/playurl?$url");
     $Response = MyRequest("https://app.bilibili.com/v2/playurlproj?$url", $header, "", "", "");
+    // $Response = MyRequest("https://interface.bilibili.com/v2/playurl?$url", $header, "", "", "");
+    // print_r("https://api.bilibili.com/x/player/playurl?cid=$cid&bvid=$videoid&qn=80");
+    // $Response = json_decode($Response['body'], true);
     $Response = json_decode($Response['body'], true);
+    // echo $Response;
+    // print_r($Response);
     if (!empty($Response['durl'][0]['url'])) 
     {
     return stripslashes($Response['durl'][0]['url']);
@@ -67,8 +85,29 @@ function GetVideoSrc($videoid,$p,$qn)
 function GetCid($videoid,$p)
 {
     $Response = MyRequest("https://api.bilibili.com/x/player/pagelist?bvid=$videoid", "", "", "", "");
+    // print_r($Response);
     $Response = json_decode($Response['body'], true);
+    // print_r($Response);
     return $Response['data'][$p-1]['cid'];
+}
+
+/* 
+ * @Description: 下载视频到本地
+ * @param: $videoid
+ * @return: 
+*/
+function DownloadVideo($videoid)
+{
+    include(DIR . '/system/config.php');
+    $VideoUrl = GetVideoSrc($videoid);
+    $Referer = "https://www.bilibili.com/video/$videoid";
+    $useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63";
+    $header = "user-agent:" . $useragent . "\r\n" . "referer:" . $Referer . "\r\n" . "cookie:" . $data['cookie'] . "\r\n" . "Origin:https://www.bilibili.com\r\n";
+    $Response = MyRequest($VideoUrl, $header, "", "", "");
+    $path = DIR . "/download/{$videoid}.flv";
+    if (file_exists($path)) exit("此视频本地已存在无需再次下载!-----视频存放路径为{$path}");
+    file_put_contents($path, $Response['body']);
+    if (file_exists($path)) echo "视频下载成功-----视频存放路径为{$path}";
 }
 
 /* 
