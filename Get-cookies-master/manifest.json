@@ -1,0 +1,22 @@
+{
+  "name": "获取指定网站cookie-chrome扩展程序",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "获取指定网站cookie-chrome扩展程序",
+
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.bilibili.com/"],
+      "js": ["content-script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "permissions": ["contextMenus","tabs","scripting", "cookies", "storage", "https://www.bilibili.com/*"],
+  "host_permissions": ["<all_urls>"]
+}
