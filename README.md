@@ -1,10 +1,10 @@
 基于PHP的哔哩哔哩视频下载<br>
-$type类型geturl/jump/url<br>
+$type类型get/jump/url<br>
 $id为视频的AV号/BV号<br>
 
 ```javascript
    演示DEMO 此接口使用腾讯云函数搭建 
-   演示DEMO:https://6256k648y6.zicp.fun/blidownload/?type=geturl&id=BV19F411Q7f5
+   演示DEMO:https://6256k648y6.zicp.fun/blidownload/?type=get&id=BV19F411Q7f5
    仅需更改尾部id=bv号即可返回视频真实地址
    > 示例项目中的cookie可能会过期建议自行搭建使用，可配套本项目中浏览器插件进行实时更新
 ```
@@ -17,7 +17,7 @@ $id为视频的AV号/BV号<br>
 
 # 1.获取视频地址示例 推荐
 >  
-解析视频示例:http://您的IP/blidownload/?type=geturl&id=BV19F411Q7f5&qn=16&p=2<br>
+解析视频示例:http://您的IP/blidownload/?type=get&id=BV19F411Q7f5&qn=16&p=2<br>
 解析并跳转视频示例:http://您的IP/blidownload/?type=jump&id=BV19F411Q7f5&qn=16&p=2<br>
 解析并跳转视频懒人方法示例：http://您的IP/blidownload/?type=url&url=https://www.bilibili.com/video/BV1Wh4y1C712/?spm_id_from=333.337.search-card.all.click&qn=16&p=2<br>
 其中qn和p均为可选参数 不指定默认qn=116 p=1
