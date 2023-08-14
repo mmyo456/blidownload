@@ -1,31 +1,26 @@
-# BiliVideoDownload
-
-> 基于 PHP 的哔哩哔哩视频下载<br>
-> $type类型geturl/jump/autojump<br>
-$id 为视频的 AV 号/BV 号/<br>
-> $p 为视频的分 P 号/<br>
-> ~~暂不支持番剧解析/下载<br>~~
+基于PHP的哔哩哔哩视频下载<br>
+$type类型geturl/jump/url<br>
+$id为视频的AV号/BV号<br>
 
 ```javascript
-经测试部分大会员账户无法使用！
-
-```
-
-```javascript
-   演示DEMO
-   视频下载演示DEMO:
+   演示DEMO 此接口使用腾讯云函数搭建 
+   演示DEMO:https://6256k648y6.zicp.fun/blidownload/?type=geturl&id=BV19F411Q7f5
    仅需更改尾部id=bv号即可返回视频真实地址
-   > 示例项目中的cookie可能会过期建议自行搭建使用!
+   > 示例项目中的cookie可能会过期建议自行搭建使用，可配套本项目中浏览器插件进行实时更新
 ```
+
 
 # 部署方法
+> 
+额，懂得都得
 
-> 无<br>
 
 # 1.获取视频地址示例 推荐
-
-> 解析视频示例:http://您的 IP/blidownload/?type=geturl&id=BV1Qv4y1o7bT&p=1<br>
-
+>  
+解析视频示例:http://您的IP/blidownload/?type=geturl&id=BV19F411Q7f5&qn=16&p=2<br>
+解析并跳转视频示例:http://您的IP/blidownload/?type=jump&id=BV19F411Q7f5&qn=16&p=2<br>
+解析并跳转视频懒人方法示例：http://您的IP/blidownload/?type=url&url=https://www.bilibili.com/video/BV1Wh4y1C712/?spm_id_from=333.337.search-card.all.click&qn=16&p=2<br>
+其中qn和p均为可选参数 不指定默认qn=116 p=1
 返回结果:<br>
 
 ```javascript
@@ -36,5 +31,21 @@ $id 为视频的 AV 号/BV 号/<br>
 }
 ```
 
-# 由于原接口变更 如需解析1080以上需要使用cookie 更新接口已写 可配合我的浏览器插件更新服务器cookie
-# 仅供学习交流，严禁用于商业用途! 点个 Star 吧,秋梨膏！
+# 折腾笔记
+
+使用到的B站接口如下<br>
+
+```javascript
+1.转换bv或av号获取视频Cid
+https://api.bilibili.com/x/player/pagelist?bvid=BV号
+2.通过BV号以及Cid获取视频真实播放地址
+https://api.bilibili.com/x/player/playurl?bvid=BV号&cid=cid号&qn=qn号&type=&otype=json&platform=html5&high_quality=1
+qn对照表:
+"超清 1080P+",116,
+"高清 1080P",80,
+"高清 720P",64,
+"清晰 480P",32,
+"流畅 360P",16,
+PS：64和32我测试貌似不起作用
+# 仅供学习交流，严禁用于商业用途! 点个Star吧,秋梨膏！
+
