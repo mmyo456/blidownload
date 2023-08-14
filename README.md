@@ -3,7 +3,7 @@ $type类型get/jump<br>
 $id为视频的AV号/BV号<br>
 
 ```javascript
-   演示DEMO 此接口使用腾讯云函数搭建 
+   演示DEMO 此接口测试使用 随时失效
    演示DEMO:https://6256k648y6.zicp.fun/blidownload/?type=get&id=BV19F411Q7f5
    仅需更改尾部id=bv号即可返回视频真实地址
    > 示例项目中的cookie可能会过期建议自行搭建使用，可配套本项目中浏览器插件进行实时更新
