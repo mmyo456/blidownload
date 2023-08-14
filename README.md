@@ -19,7 +19,7 @@ $id为视频的AV号/BV号<br>
 >  
 解析视频示例:https://6256k648y6.zicp.fun/blidownload/?type=get&id=BV1Wh4y1C712&p=5&qn=16<br>
 解析并跳转视频示例:https://6256k648y6.zicp.fun/blidownload/?type=jump&id=BV1Wh4y1C712&p=5&qn=16<br>
-解析并跳转视频懒人方法示例：https://6256k648y6.zicp.fun/?url=https://www.bilibili.com/video/BV1Wh4y1C712?p=2&vd_source=9cf00fe126483a7d41b52e407376a37a<br>
+解析并跳转视频懒人方法示例：https://6256k648y6.zicp.fun/blidownload/?url=https://www.bilibili.com/video/BV1Wh4y1C712?p=2&vd_source=9cf00fe126483a7d41b52e407376a37a<br>
 其中qn和p均为可选参数 不指定默认qn=116 p=1
 返回结果:<br>
 
