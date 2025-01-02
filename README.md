@@ -1,3 +1,4 @@
+## 使用以下Demo域名服务请留原作者名称，包括但不限于VRChat世界 Web等等
 基于PHP的哔哩哔哩视频下载<br>
 $type类型get/jump<br>
 $id为视频的AV号/BV号<br>
